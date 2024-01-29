@@ -4,16 +4,17 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+/**
+ * Класс-сущность "Маршрут"
+ */
 @Entity
+@Table(name = "roads")
+@Data
 @NoArgsConstructor
-@Table(name = "trams")
-public class Tram {
+public class Road {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String code;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "roads_id", referencedColumnName = "id")
-    private Road road;
+    private String startPoint;
+    private String endPoint;
 }

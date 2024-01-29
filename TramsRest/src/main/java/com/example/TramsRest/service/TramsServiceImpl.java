@@ -61,7 +61,7 @@ public class TramsServiceImpl implements TramsService {
         Tram tram = getTramById(id);
         tram.setId(id);
         tram.setCode(tramDetails.getCode());
-        tram.setName(tramDetails.getName());
+        tram.setRoad(tramDetails.getRoad());
         return tram;
     }
 
