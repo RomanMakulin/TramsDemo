@@ -1,7 +1,7 @@
 package com.example.TramsRest.service;
 
 import com.example.TramsRest.models.Tram;
-import com.example.TramsRest.repository.TramsRepository;
+import com.example.TramsRest.repository.TramRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,11 @@ import java.util.List;
 @Service
 @Data
 @RequiredArgsConstructor
-public class TramsServiceImpl implements TramsService {
+public class TramServiceImpl implements TramService {
     /**
      * Репозиторий для управления БД
      */
-    private final TramsRepository tramsRepository;
+    private final TramRepository tramsRepository;
 
     /**
      * Получение всех маршрутов
@@ -34,7 +34,7 @@ public class TramsServiceImpl implements TramsService {
      * @return объект нового маршрута в БД
      */
     @Override
-    public Tram createTrams(Tram tram) {
+    public Tram createTram(Tram tram) {
         return tramsRepository.save(tram);
     }
 

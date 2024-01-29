@@ -1,7 +1,7 @@
-package com.example.TramsRest.controllers;
+package com.example.TramsRest.controllers.rest;
 
 import com.example.TramsRest.models.Tram;
-import com.example.TramsRest.service.TramsService;
+import com.example.TramsRest.service.TramService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @Data
 @RequestMapping("/trams")
-public class TramsController {
+public class TramController {
     /**
      * Инкапсулируем сервис-интерфейс для работы с БД
      */
-    private final TramsService tramsService;
+    private final TramService tramService;
 
     /**
      * Получение всех маршрутов
@@ -27,7 +27,7 @@ public class TramsController {
      */
     @GetMapping
     public ResponseEntity<List<Tram>> getAllTrams() {
-        return new ResponseEntity<>(tramsService.getAllTrams(), HttpStatus.OK);
+        return new ResponseEntity<>(tramService.getAllTrams(), HttpStatus.OK);
     }
 
     /**
@@ -38,7 +38,7 @@ public class TramsController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Tram> getById(@PathVariable("id") int id) {
-        return new ResponseEntity<>(tramsService.getTramById(id), HttpStatus.OK);
+        return new ResponseEntity<>(tramService.getTramById(id), HttpStatus.OK);
     }
 
     /**
@@ -49,7 +49,7 @@ public class TramsController {
      */
     @PostMapping
     public ResponseEntity<Tram> createTram(@RequestBody Tram tram) {
-        return new ResponseEntity<>(tramsService.createTrams(tram), HttpStatus.CREATED);
+        return new ResponseEntity<>(tramService.createTram(tram), HttpStatus.CREATED);
     }
 
     /**
@@ -60,7 +60,7 @@ public class TramsController {
      */
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delTram(@PathVariable("id") int id) {
-        tramsService.deleteTramById(id);
+        tramService.deleteTramById(id);
         return ResponseEntity.ok().build();
     }
 
@@ -73,7 +73,7 @@ public class TramsController {
      */
     @PutMapping("{id}")
     public ResponseEntity<Tram> updateTram(@PathVariable("id") int id, @RequestBody Tram tramDetails) {
-        Tram tram = tramsService.updateTramById(id, tramDetails);
+        Tram tram = tramService.updateTramById(id, tramDetails);
         return new ResponseEntity<>(tram, HttpStatus.OK);
     }
 

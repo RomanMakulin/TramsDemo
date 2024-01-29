@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * Интферфейс взаимодействия, управления БД
  */
 @Repository
-public interface TramsRepository extends JpaRepository<Tram, Integer> {
+public interface TramRepository extends JpaRepository<Tram, Integer> {
 }

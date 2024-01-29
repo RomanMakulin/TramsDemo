@@ -4,10 +4,10 @@ import com.example.TramsRest.models.Tram;
 
 import java.util.List;
 
-public interface TramsService {
+public interface TramService {
     List<Tram> getAllTrams();
 
-    Tram createTrams(Tram tram);
+    Tram createTram(Tram tram);
 
     Tram getTramById(int id);
 
